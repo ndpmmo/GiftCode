@@ -1,8 +1,0 @@
-messages:
-  giftcode_redeemed: "You have redeemed the giftcode and received {amount} coins!"
-  giftcode_expired: "This giftcode has expired."
-  giftcode_invalid: "Cde Không Tồn Tại !."
-  giftcode_generated: "Giftcode generated successfully!"
-  giftcode_deleted: "Giftcode deleted successfully!"
-  no_permission: "You don't have permission to use this command."
-  only_game: "This command can only be used in-game."

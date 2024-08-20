@@ -1,61 +1,74 @@
-# GiftcodePlugin
+# GiftCode Plugin
 
-GiftcodePlugin is a PocketMine-MP plugin that allows players to redeem giftcodes and receive rewards in the form of in-game currency. It also provides functionality for server administrators to generate and manage giftcodes.
+## Description
+
+The GiftCode plugin is a powerful and flexible tool for Minecraft PocketMine-MP servers that allows administrators to create, manage, and distribute gift codes to players. These codes can be redeemed for in-game currency, providing an engaging way to reward players or run promotional events.
 
 ## Features
 
-- Players can redeem giftcodes using the `/giftcode` command and receive the specified amount of in-game currency.
-- Server administrators can generate new giftcodes with a specified code, amount, and expiration time using the `/giftcodegen` command.
-- Server administrators can delete existing giftcodes using the `/giftcodedelete` command.
-- Giftcodes can have an expiration time in minutes, or they can be set to never expire by specifying 'x' as the expiration time.
-- The plugin integrates with the BedrockEconomy plugin to handle the distribution of in-game currency.
-- Customizable messages for various events and notifications, which can be configured in the `messenger.yml` file.
+- **Create Gift Codes**: Administrators can generate unique gift codes with customizable parameters.
+- **Redeem Codes**: Players can easily redeem gift codes to receive in-game currency.
+- **Expiration System**: Set time limits on gift codes to create urgency or run time-limited promotions.
+- **Usage Limits**: Define how many times a code can be used, from single-use to unlimited.
+- **User-Friendly Interface**: Utilizes FormAPI to provide an intuitive GUI for all functions.
+- **Customizable Messages**: All plugin messages can be customized through a configuration file.
 
-## Requirements
+## Commands
 
-- PocketMine-MP server software
-- BedrockEconomy plugin (installed and configured)
-- FormAPI plugin (installed)
+### For Players:
+- `/giftcode`: Opens a form to redeem a gift code.
 
-## Installation
-
-1. Download the GiftcodePlugin `.phar` file.
-2. Place the `.phar` file in the `plugins` directory of your PocketMine-MP server.
-3. Restart your server to load the plugin.
-
-## Configuration
-
-The plugin creates a `messenger.yml` file in the plugin's data directory upon first run. This file contains the configurable messages for various events and notifications. You can modify the messages to suit your preferences.
+### For Administrators:
+- `/giftcodegen`: Opens a form to generate a new gift code.
+- `/giftcodedelete`: Opens a form to delete an existing gift code.
 
 ## Usage
 
-### Player Commands
+### Redeeming a Gift Code
+1. Type `/giftcode` in the chat.
+2. Enter the gift code in the form that appears.
+3. If valid, the code will be redeemed, and you'll receive the specified amount of in-game currency.
 
-- `/giftcode <code>`: Redeem a giftcode and receive the associated reward.
+### Generating a Gift Code (Admin Only)
+1. Type `/giftcodegen` in the chat.
+2. Fill in the following information in the form:
+   - Code: The unique code for the gift.
+   - Amount: The amount of currency to be awarded.
+   - Expire Time: Time in minutes until the code expires (use 'x' for no expiry).
+   - Quantity: Number of times the code can be used (use 'x' for unlimited).
+3. Submit the form to create the gift code.
 
-### Admin Commands
-
-- `/giftcodegen <code> <amount> <expireTime>`: Generate a new giftcode with the specified code, amount, and expiration time (in minutes). Use 'x' for the expiration time to create a permanent giftcode.
-- `/giftcodedelete <code>`: Delete an existing giftcode.
+### Deleting a Gift Code (Admin Only)
+1. Type `/giftcodedelete` in the chat.
+2. Enter the code you wish to delete in the form.
+3. Confirm to remove the gift code from the system.
 
 ## Permissions
 
-- `giftcode.use`: Allows players to use the `/giftcode` command to redeem giftcodes. (Default: true)
-- `giftcode.gen`: Allows players to use the `/giftcodegen` command to generate new giftcodes. (Default: op)
-- `giftcode.delete`: Allows players to use the `/giftcodedelete` command to delete giftcodes. (Default: op)
+- `giftcode.use`: Allows players to use the `/giftcode` command (default: true).
+- `giftcode.gen`: Allows players to generate gift codes (default: op).
+- `giftcode.delete`: Allows players to delete gift codes (default: op).
 
-## Support and Contributions
+## Configuration
 
-If you encounter any issues or have suggestions for improvements, please feel free to open an issue on the plugin's GitHub repository. Contributions in the form of pull requests are also welcome.
+The plugin uses three configuration files:
 
-## License
+1. `code.json`: Stores information about active gift codes.
+2. `player.json`: Keeps track of which players have used which codes.
+3. `messenger.json`: Contains all customizable messages used by the plugin.
 
-This plugin is released under the [MIT License](https://opensource.org/licenses/MIT). You are free to use, modify, and distribute the plugin as per the terms of the license.
+## Dependencies
 
-## Credits
+- FormAPI: Required for the user interface.
+- BedrockEconomy: Used for managing in-game currency transactions.
 
-- Plugin developed by MrxKun
-- BedrockEconomy plugin by [cooldogedev](https://github.com/cooldogedev/BedrockEconomy)
-- FormAPI plugin by [jojoe77777](https://github.com/jojoe77777/FormAPI)
+## Installation
 
-Enjoy using the GiftcodePlugin! :smile:
+1. Place the GiftCode plugin file in your server's `plugins` folder.
+2. Ensure that FormAPI and BedrockEconomy are installed and enabled.
+3. Restart your server or use a plugin manager to load the GiftCode plugin.
+4. Configure the plugin as needed through the generated configuration files.
+
+---
+
+This plugin offers a robust gift code system that can enhance player engagement and provide flexible options for server administrators to reward their community.
