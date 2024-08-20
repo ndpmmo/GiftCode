@@ -1,0 +1,36 @@
+---
+name: GiftCode
+version: 0.0.1
+main: MrxKun\GiftCode\Main
+api: 5.18.0
+src-namespace-prefix: MrxKun\GiftCode
+depend: ["BedrockEconomy", "FormAPI"]
+commands:
+  giftcode:
+    description: "Redeem a giftcode"
+    usage: "/giftcode <code>"
+    permission: "giftcode.use"
+
+  giftcodegen:
+    description: "Generate a new giftcode"
+    usage: "/giftcodegen <code> <amount> <expireTime>"
+    permission: "giftcode.gen"
+
+  giftcodedelete:
+    description: "Delete a giftcode"
+    usage: "/giftcodedelete <code>"
+    permission: "giftcode.delete"
+
+permissions:
+  giftcode.use:
+    description: "Allows using giftcodes"
+    default: true
+
+  giftcode.gen:
+    description: "Allows generating new giftcodes"
+    default: op
+
+  giftcode.delete:
+    description: "Allows deleting giftcodes"
+    default: op
+...
